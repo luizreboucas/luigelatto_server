@@ -4,8 +4,13 @@ import dotenv from 'dotenv'
 dotenv.config()
 import db from './config/dbconfig.js'
 
+
 // eslint-disable-next-line no-undef
 const URI = process.env.PORT
+
+db.on('error',(error)=>{
+	console.log(error)
+})
 
 db.once('open', ()=>{
 	console.log('conectado com o banco de dados')
